@@ -10,26 +10,7 @@ from stock_analysis.query.data_query import parse_data
 
 TICKER_LIST = [
     "RELIANCE",
-    "LEMONTREE",
-    # "DELTACORP",
-    # "ABFRL",
-    # "SPICEJET",
-    # "INDIGO",
-    # "IDEA",
-    # "BAJAJHIND",
-    # "THOMASCOOK",
-    # "SAKUMA",
-    # "RAJESHEXPO",
-    # "ADANIPORTS",
-    # "AWL",
-    # "COALINDIA",
-    # "EIHOTEL",
-    # "ICICIBANK",
-    # "SBIN",
-    # "NMDC",
-    # "JINDALSTEL",
-    # "ONGC",
-    # "TATAMOTORS",
+    "SBIN",
 ]
 df = pd.DataFrame()
 for TICKER in TICKER_LIST:
@@ -58,3 +39,7 @@ for TICKER in TICKER_LIST:
     df = pd.concat([df, stock_df[cols_to_keep]], axis=0)
 
 print(df)
+## Todo -- 
+# Fix data types
+# Plot price - 1y
+# identify events - Ex Dividend date, stock split/reverse split, holidays, etc. 
