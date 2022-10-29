@@ -10,7 +10,7 @@ from stock_analysis.query.data_query import parse_data
 
 TICKER_LIST = [
     "RELIANCE",
-    "SBIN",
+    "INDIGO",
 ]
 df = pd.DataFrame()
 for TICKER in TICKER_LIST:
@@ -38,8 +38,33 @@ for TICKER in TICKER_LIST:
     ]
     df = pd.concat([df, stock_df[cols_to_keep]], axis=0)
 
-print(df)
-## Todo -- 
+
+## Todo --
 # Fix data types
+df = df.astype(
+    {
+        "Previous Close": "float",
+        "Open": "float",
+        "Volume": "int",
+        "Avg. Volume": "int",
+        "Beta (5Y Monthly)": "float",
+        "PE Ratio (TTM)": "float",
+        "EPS (TTM)": "float",
+        "1y Target Est": "float",
+    }
+)
+
 # Plot price - 1y
-# identify events - Ex Dividend date, stock split/reverse split, holidays, etc. 
+# identify events - Ex Dividend date, stock split/reverse split, holidays, etc.
+print(
+    df[
+        [
+            "Previous Close",
+            "Avg. Volume",
+            "PE Ratio (TTM)",
+            "EPS (TTM)",
+            "Forward Dividend & Yield",
+            "1y Target Est",
+        ]
+    ]
+)

@@ -33,5 +33,5 @@ def parse_data(ticker):
         for tr in trs:
             tds = tr.find_all("td")
             if len(tds) > 0:
-                stockDict[tds[0].text] = tds[1].text
+                stockDict[tds[0].text] = tds[1].text.replace(",", "")
     return stockDict
